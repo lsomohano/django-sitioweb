@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -5,7 +6,7 @@ from django.db import models
 class Servicios(models.Model):
     servicio=models.CharField(max_length=50)
     contenido=models.CharField(max_length=50)
-    imagen=models.ImageField()
+    imagen=models.ImageField(upload_to='servicios')
     created=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
 
