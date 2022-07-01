@@ -11,8 +11,3 @@ def tienda(request):
     titles = {"title_page":'Tienda',"sub_title_page":'Los mejores productos para tí.'}
 
     return render(request,"ProyectowebApp/tienda.html",{"titles":titles})
-
-def contacto(request):
-    titles = {"title_page":'Contacto',"sub_title_page":'Dejanos tus comentarios.'}
-
-    return render(request,"ProyectowebApp/contacto.html",{"titles":titles})

@@ -5,14 +5,15 @@
     <div class="col-md-12 col-sm-12  ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Categorias: 
-                  <small>
+                <h2>Categorias: &nbsp; </h2>
                       {% for categoria in categorias %}
-                        {{categoria.categoria}}  
+                        {% if categoria.id == categoria_id %}
+                          <a class="btn btn-primary btn-sm" href="{% url 'Categoria' categoria.id %}" role="button">{{categoria.categoria}}</a>
+                        {% else %}
+                          <a class="btn btn btn-outline-success btn-sm" href="{% url 'Categoria' categoria.id %}" role="button">{{categoria.categoria}}</a>
+                        {% endif %}
                       {% endfor %}
-                  </small>
-                </h2>
-                
+                      <a class="btn btn btn-outline-success btn-sm" href="{% url 'Blog' %}" role="button">Todas</a>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
