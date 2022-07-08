@@ -27,31 +27,40 @@
               <span class="badge bg-green">{{articulos}}</span>
             </a>
             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-              <!--<li class="nav-item">
+              {% if request.session.carro.items %}
+                {% for key, value in request.session.carro.items %}
+                <li class="nav-item">
+                  <a class="dropdown-item">
+                    <span class="image"><img src="{{value.imagen}}" alt="Profile Image" /></span>
+                    <span>
+                      <span>{{value.producto}}</span>
+                      <span class="time">$ {{value.total}}</span>
+                    </span>
+                    <span class="message">
+                      P.U.$ $ {{value.precio}}
+                    </span>
+                  </a>
+                  <div class="btn-group btn-group-sm pull-right" role="group" >
+                    <a href="{% url 'carro:Restar' value.producto_id %}" class="btn btn-outline-dark" > - </a>
+                    <a href="#" class="btn btn-outline-dark disabled"> {{value.cantidad}} </a>
+                    <a href="{% url 'carro:Agregar' value.producto_id %}" class="btn btn-outline-dark" >+</a>
+                  </div>
+                </li>
+                {% endfor %}
+              {% else %}              
+              <li class="nav-item">
                 <a class="dropdown-item">
                   <span class="image"><img src="{% static 'ProyectowebApp/gentelella/images/img.jpg' %}" alt="Profile Image" /></span>
                   <span>
-                    <span>John Smith</span>
-                    <span class="time">{{articulos}}</span>
+                    <span>Cesta sin prodstos</span>
+                    <span class="time">0</span>
                   </span>
                   <span class="message">
                     ...
                   </span>
                 </a>
-              </li>-->
-              
-              <!--<li class="nav-item">
-                <a class="dropdown-item">
-                  <span class="image"><img src="{% static 'ProyectowebApp/gentelella/images/img.jpg' %}" alt="Profile Image" /></span>
-                  <span>
-                    <span>John Smith</span>
-                    <span class="time">3 mins ago</span>
-                  </span>
-                  <span class="message">
-                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                  </span>
-                </a>
-              </li>-->
+              </li>
+              {% endif %}
               <li class="nav-item">
                 <div class="text-center">
                   Total $ {{importe_total_carro}}

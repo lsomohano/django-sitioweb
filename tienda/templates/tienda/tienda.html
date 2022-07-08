@@ -31,7 +31,7 @@
                                 {% endfor %}-->
                               </small></p>
                               <div class="tools tools-bottom">
-                                <a href="#" title="Agregar al carrito"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="{% url 'carro:Agregar' producto.id %}" title="Agregar al carrito"><i class="fa fa-shopping-cart"></i></a>
                                 <!--<a href="#"><i class="fa fa-pencil"></i></a>
                                 <a href="#"><i class="fa fa-times"></i></a>-->
                               </div>
