@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from django.contrib.messages import constants as messages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'contacto',
     'tienda',
     'autenticacion',
+    'crispy_forms',
+    'pedidos',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +145,14 @@ EMAIL_USE_STARTTLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'error',
+    #50: 'critical',
+}
