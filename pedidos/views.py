@@ -40,7 +40,7 @@ def procesar_pedido(request):
     return redirect("../")
 
 def enviar_email(**kwargs):
-    asunto="Gracia por el pedido"
+    asunto="Gracias por el pedido"
     mensaje=render_to_string("emails/pedido.html",{
         "pedido":kwargs.get("pedido"),
         "lineas_pedido":kwargs.get("lineas_pedido"),
